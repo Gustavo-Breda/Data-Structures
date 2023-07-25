@@ -1,4 +1,5 @@
 # Data_Structure
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 ## Description
 > This repository contains implementations of various data structures in C, such as linked lists, stacks, queues, binary search trees (BST) and heaps (HP)
 ## Table of Contents
