@@ -3,13 +3,11 @@
 
 void HP_insert_max (int* list, int key, int* n);
 void HP_remove_max (int* list, int* n);
+void HP_sort (int* list, int n);
 
 void HP_maxify (int* list, int index, int n);
 void HP_max (int* list, int index, int n);
 void HP_min (int* list, int index, int n);
-
-void HP_sort (int* list, int n);
-void HP_case ();
 
 int father (int i);
 int lson (int i);
@@ -29,7 +27,29 @@ int main ()
 
     */
     
-    HP_case ();
+    /* EXAMPLE 
+
+        int list [10] = {4, 5, 2 , 3, 6, 8, 99, 0};
+        int size = 7;
+
+        HP_maxify (list, father (size), size);
+        HP_insert_max (list, 9, &size);
+        HP_remove_max (list, &size);
+
+        for (int i = 0; i <= size; i ++) 
+        {
+            if (i == 0) 
+            {
+                printf ("\nList:");
+            }
+            printf (" %d", list[i]);
+            if (i == size) 
+            {
+                printf ("\n\n");
+            }
+        }
+
+    */
 
     return 0;
 
@@ -68,6 +88,27 @@ void HP_remove_max (int* list, int* n)
         list [0] = list [*n];
         HP_max (list, 0, *n - 1);
         *n -= 1;
+    }
+
+}
+void HP_sort (int* list, int n) 
+{
+
+    // OVERVIEW: HAS O(N LN) AND SORTS IN PLACE
+    int temp;
+    int i;
+
+    // S1: CONTRUCT HEAP
+    HP_maxify (list, father (n), n);
+
+    // S2: FIRST NODE POSITION TO LAST AND MAX-HEAP IT
+    for (i = n; i >= 1; i --) 
+    {
+        temp = list [0];
+        list [0] = list [i];
+        list [i] = temp;
+
+        HP_max (list, 0, i - 1);
     }
 
 }
@@ -148,52 +189,6 @@ void HP_min (int* list, int index, int n)
         HP_min (list, smallest, n);
     }
 
-
-}
-
-void HP_sort (int* list, int n) 
-{
-
-    // OVERVIEW: HAS O(N LN) AND SORTS IN PLACE
-    int temp;
-    int i;
-
-    // S1: CONTRUCT HEAP
-    HP_maxify (list, father (n), n);
-
-    // S2: FIRST NODE POSITION TO LAST AND MAX-HEAP IT
-    for (i = n; i >= 1; i --) 
-    {
-        temp = list [0];
-        list [0] = list [i];
-        list [i] = temp;
-
-        HP_max (list, 0, i - 1);
-    }
-
-}
-void HP_case () 
-{
-
-    int list [10] = {4, 5, 2 , 3, 6, 8, 99, 0};
-    int size = 7;
-
-    HP_maxify (list, father (size), size);
-    HP_insert_max (list, 9, &size);
-    HP_remove_max (list, &size);
-
-    for (int i = 0; i <= size; i ++) 
-    {
-        if (i == 0) 
-        {
-            printf ("\nList:");
-        }
-        printf (" %d", list[i]);
-        if (i == size) 
-        {
-            printf ("\n\n");
-        }
-    }
 
 }
 
