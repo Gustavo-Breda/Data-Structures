@@ -11,7 +11,7 @@
 In future versions, i aim to include implementations of various algorithms related to "Ordered Dictionaries", "Sorting", "Union-Find" and "Stringology"
 ## License
 This project is licensed under the [MIT License](LICENSE)
-## Contact:
+## Contact
 <div>
 <a href="https://www.instagram.com/gustavo_tbreda/" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
 </div>
