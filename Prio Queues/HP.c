@@ -58,6 +58,7 @@ int main ()
 
 void HP_insert_max (int* list, int key, int* n) 
 {
+    
     // OVERVIEW: WE HAVE TWO ACTIONS HERE (INSERT_KEY) AND (INCREASE_KEY)
     int temp;
     int i;

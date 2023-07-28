@@ -75,8 +75,13 @@ Node* LHP_node (int data)
 
         new_node -> l = NULL;
         new_node -> r = NULL;
+        return new_node;
     }
-    return new_node;
+    else
+    {
+        printf ("\nAllocation error");
+        exit (1);
+    }
 
 }
 
@@ -104,16 +109,12 @@ void LHP_decrease (Node* root, Node* x, int k)
             
             LHP_remodel (x_father);
 
-            Node* aux = NULL;
-
-            while (aux != root)
+            Node* aux = NULL;  
+            while (aux != root) 
             {
-
                 aux = LHP_find_father (root, aux);
                 LHP_remodel (aux);
-
             }
-
             LHP_remodel (root);
         }
         LHP_union (root, x);
@@ -135,7 +136,7 @@ void LHP_insert (Node** root, int x)
     
 }
 
-// PROBABLY THERES A SMARTIEST WAY TO DO THIS
+// PROBABLY THERES A SMARTEST WAY TO DO THE DECREASE OPERATION
 Node* LHP_find_father (Node* root, Node* x) 
 {
 

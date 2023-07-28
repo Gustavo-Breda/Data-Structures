@@ -42,9 +42,9 @@ void FHP_decrease (FHP* H, Node* x, int k);
 void FHP_cut (FHP* H, Node* x, Node* y);
 void FHP_cascade_cut (FHP* H, Node* y);
 
-void DLL_concatenate (Node* ra, Node* rb);
-void DLL_insert (Node* x, Node* y);
-void DLL_remove (Node* x);
+void CDLL_concatenate (Node* ra, Node* rb);
+void CDLL_insert (Node* x, Node* y);
+void CDLL_remove (Node* x);
 
 void trade (Node** a, Node** b);
 int F (int n);
@@ -89,7 +89,7 @@ FHP* FHP_union (FHP* H1, FHP* H2)
     FHP* H = FHP_create ();
     H -> min = H1 -> min;
 
-    DLL_concatenate (H1 -> min, H2 -> min);
+    CDLL_concatenate (H1 -> min, H2 -> min);
 
     if (H1 -> min == NULL || (H2 -> min != NULL && H2 -> min < H1 -> min)) 
     {
@@ -133,7 +133,7 @@ Node* FHP_remove_minimum (FHP* H)
 
                 aux = aux_cc -> r;
                 
-                DLL_insert (H -> min, aux_cc);
+                CDLL_insert (H -> min, aux_cc);
 
                 aux_cc -> father = NULL;
                 aux_cc = aux;
@@ -142,7 +142,7 @@ Node* FHP_remove_minimum (FHP* H)
         }
 
         // S2: REMOVE Z FROM LINKED LIST
-        DLL_remove (z);
+        CDLL_remove (z);
         H -> n -= 1;
 
         // S3: FORM THE NEW MINIMUM
@@ -201,7 +201,7 @@ void FHP_link (FHP* H, Node* y, Node* x)
 {
 
     // REMOVE Y FROM THE ROOT LIST
-    DLL_remove (y);
+    CDLL_remove (y);
 
     if (H -> min == y) 
     {
@@ -211,7 +211,7 @@ void FHP_link (FHP* H, Node* y, Node* x)
     // PUT Y ON THE ROOT LIST OF THE CHILDRENS OF X
     if (x -> child != NULL) 
     {
-        DLL_insert (x -> child, y);
+        CDLL_insert (x -> child, y);
     }
     else 
     {
@@ -237,7 +237,7 @@ void FHP_insert (FHP* H, int data)
     }
     else 
     {
-        DLL_insert (H -> min, node);
+        CDLL_insert (H -> min, node);
 
         if (H -> min -> data > data) 
         {
@@ -310,7 +310,7 @@ void FHP_consolidate (FHP* H)
             }
             else 
             {
-                DLL_insert (H -> min, aux_vector [i]);
+                CDLL_insert (H -> min, aux_vector [i]);
                 if (H -> min -> data > aux_vector [i] -> data) 
                 {
                     H -> min = aux_vector [i];
@@ -347,8 +347,8 @@ void FHP_decrease (FHP* H, Node* x, int k)
 void FHP_cut (FHP* H, Node* x, Node* y) 
 {
     
-    DLL_remove (x);
-    DLL_insert (H -> min, x);
+    CDLL_remove (x);
+    CDLL_insert (H -> min, x);
 
     x -> father = NULL;
     x -> marked = 0;
@@ -374,8 +374,8 @@ void FHP_cascade_cut (FHP* H, Node* y)
 
 }
 
-// DOUBLY LINKED LIST FUNCTIONS
-void DLL_concatenate (Node* ra, Node* rb) 
+// CIRCULAR DOUBLY LINKED LIST FUNCTIONS
+void CDLL_concatenate (Node* ra, Node* rb) 
 {
     
     if (ra == NULL) 
@@ -402,7 +402,7 @@ void DLL_concatenate (Node* ra, Node* rb)
     aux_ra -> r = aux_rb;
 
 }
-void DLL_insert (Node* x, Node* y) 
+void CDLL_insert (Node* x, Node* y) 
 {
 
     // UPDATE THE BROTHERHOOD OF LEFT NODE OF x
@@ -414,7 +414,7 @@ void DLL_insert (Node* x, Node* y)
     y -> r = x;
 
 }
-void DLL_remove (Node* x) 
+void CDLL_remove (Node* x) 
 {
 
     x -> r -> l = x -> l;
@@ -426,15 +426,15 @@ void DLL_remove (Node* x)
 void trade (Node** a, Node** b) 
 {
 
-    Node* temp = *a;
+    Node* aux = *a;
     *a = *b;
-    *b = temp;
+    *b = aux;
 
 }
 int F (int n) 
 {
 
-    // EXPLANATION: FUNCTION TO FIND LOG (n)
+    // EXPLANATION: FUNCTION TO CALCULATE LOG (n)
     int result = -1;
     while (n > 0) 
     {

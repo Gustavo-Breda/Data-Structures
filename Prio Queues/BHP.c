@@ -18,9 +18,9 @@ struct node
 Node* BHP_create (int size);
 Node* BHP_node (int data);
 
-Node* BHP_minimum (Node* vector);
-Node* BHP_find (Node* vector, int x);
-Node* BHP_find_node (Node* node, int x);
+Node* BHP_min (Node* vector);
+Node* BHP_search (Node* vector, int x);
+Node* BHP_search_node (Node* node, int x);
 
 void BHP_decrease (Node* vector, int x, int k);
 void BHP_remove (Node* vector);
@@ -44,7 +44,7 @@ int main ()
 
         BHP_remove (B);
 
-        Node* minimum = BHP_minimum (vector);
+        Node* minimum = BHP_min (vector);
 
         printf ("\nROOT HEAP B3: %d", vector[3].data);
         printf ("\nMINIMUN VALUE IN HEAP VECTOR: %d\n\n", minimum -> data);
@@ -76,15 +76,20 @@ Node* BHP_create (int size)
         sentinel.data = INT_MAX;
 
         new_vector [size] = sentinel;
-    }
 
-    return new_vector;
+        return new_vector;
+    }
+    else 
+    {
+        printf ("Allocation error");
+        exit (1);
+    }
     
 }
 Node* BHP_node (int data) 
 {
 
-    Node* new_node = (Node*) malloc (sizeof (Node));
+    Node* new_node = malloc (sizeof (Node));
     if (new_node != NULL) 
     {
         new_node -> data = data;
@@ -93,13 +98,18 @@ Node* BHP_node (int data)
         new_node -> brother = NULL;
         new_node -> father = NULL;
         new_node -> child = NULL;
-    }
 
-    return new_node;
+        return new_node;
+    }
+    else 
+    {
+        printf ("Allocation error");
+        exit (1);
+    }
 
 }
 
-Node* BHP_minimum (Node* vector) 
+Node* BHP_min (Node* vector) 
 {
 
     Node* aux = NULL;
@@ -122,7 +132,7 @@ Node* BHP_minimum (Node* vector)
     return aux;
     
 }
-Node* BHP_find (Node* vector, int x) 
+Node* BHP_search (Node* vector, int x) 
 {
 
     Node* aux = NULL;
@@ -136,7 +146,7 @@ Node* BHP_find (Node* vector, int x)
         }
         else if (vector[i].data != 0) 
         {
-            aux = BHP_find_node (vector[i].child, x);
+            aux = BHP_search_node (vector[i].child, x);
         }
 
         // S2: RETURN THE ANSWER OF THE FIND
@@ -150,7 +160,7 @@ Node* BHP_find (Node* vector, int x)
     return NULL;
 
 }
-Node* BHP_find_node (Node* node, int x) 
+Node* BHP_search_node (Node* node, int x) 
 {
 
     Node* result = NULL;
@@ -165,13 +175,13 @@ Node* BHP_find_node (Node* node, int x)
         return node;
     }
     
-    result = BHP_find_node (node -> child, x);
+    result = BHP_search_node (node -> child, x);
     if (result != NULL) 
     {
         return result;
     }
     
-    result = BHP_find_node (node -> brother, x);
+    result = BHP_search_node (node -> brother, x);
     if (result != NULL) 
     {
         return result;
@@ -185,7 +195,7 @@ void BHP_decrease (Node* vector, int x, int k)
 {
 
     // S1: FIND THE NODE
-    Node* node = BHP_find (vector, x);
+    Node* node = BHP_search (vector, x);
     if (node == NULL) 
     { 
         return;
@@ -214,7 +224,7 @@ void BHP_remove (Node* vector)
     Node* node;
     Node* aux;
 
-    node = BHP_minimum (vector);
+    node = BHP_min (vector);
     if (node == NULL) 
     {
         return;
