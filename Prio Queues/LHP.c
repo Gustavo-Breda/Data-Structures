@@ -32,7 +32,7 @@ int main ()
     
     /* Leftist HEAP 
 
-        USE: EASIEST HEAP THAT HAS MERGE TWO HEAPS IN O(LOG N)
+        USE: EASIEST HEAP WHICH MERGE TWO HEAPS IN O(LOG N)
 
     */
 
