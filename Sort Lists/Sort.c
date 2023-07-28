@@ -333,7 +333,7 @@ void DNF (int* vector, int init, int end, int* max, int* min)
     *min = init;
     *max = end;
 
-    // CONCEPT: THE ALGORITHYM DIVIDE THE ARRAY ON SECTIONS {<= && == && >=} OF THE PIVOT
+    // CONCEPT: THE ALGORITHYM DIVIDE THE ARRAY ON SECTIONS {<= && == && >=} IN COMPARISON TO THE PIVOT
     while (i <= *max) 
     {
         
