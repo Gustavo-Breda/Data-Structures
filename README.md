@@ -8,7 +8,7 @@
 3. [License](#license)
 4. [Contact](#Contact)
 ## Algorithms
-In future versions, i aim to include implementations of various algorithms related to "BST", "Linear Lists", "UF" and "Trie"
+In future versions, i aim to include some codes like "Trie algorithms", "Red-Black Tree", "Left Leaning Red-Black Tree" and "B-Tree"
 ## License
 This project is licensed under the [MIT License](LICENSE)
 ## Contact
