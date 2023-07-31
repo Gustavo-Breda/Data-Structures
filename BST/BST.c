@@ -13,7 +13,7 @@ struct node
 
 };
 
-Node* BST_find (Node* root, int k);
+Node* BST_search (Node* root, int k);
 Node* BST_node (int key);
 
 void BST_remove (Node** root, int x);
@@ -32,14 +32,12 @@ int node_ht (Node* root);
 int main () 
 {
 
-    Node *root = NULL;
-
     return 0;
 
 }
 
 
-Node* BST_find (Node* root, int k) 
+Node* BST_search (Node* root, int k) 
 {
 
     if (root == NULL) 
@@ -52,11 +50,11 @@ Node* BST_find (Node* root, int k)
     }
     else if (root -> key > k) 
     {
-        return BST_find (root -> l, k);
+        return BST_search (root -> l, k);
     }
     else 
     {
-        return BST_find (root -> r, k);
+        return BST_search (root -> r, k);
     }
 
 }
@@ -109,7 +107,7 @@ void BST_insert (Node** root, int x)
 void BST_remove (Node** root, int x) 
 {
 
-    Node* node_x = BST_find (*root, x);
+    Node* node_x = BST_search (*root, x);
 
     if (node_x == NULL) 
     {

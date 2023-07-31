@@ -26,7 +26,6 @@ int main ()
 {
 
     // LINKED LIST: SORTED AND WITHOUT HEAD AND TAIL NODES
-    Node* LL = LL_create ();
 
     return 0;
 
@@ -122,7 +121,7 @@ void LL_insert (Node** root, int data)
     Node* new = LL_node (data);
     Node* aux = root;
 
-    // SORTED LIST: THIS WAY HAS O(N^2) 
+    // SORTED LIST: THIS WAY HAS O(N^2) IN WORST CASEE
     if (aux == NULL) 
     {   
         root = new;
@@ -169,7 +168,7 @@ void LL_suffix_sum (Node* root)
         return;
     }
 
-    // COMPLEXITY: THIS WAY HAS O(2N) OR O(N)
+    // COMPLEXITY: THIS WAY HAS O(N) IN ALL CASES
     int sum = 0;
     Node* aux = root;
     while (aux -> next != NULL) 

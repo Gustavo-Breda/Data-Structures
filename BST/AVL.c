@@ -3,7 +3,7 @@
 
 typedef struct node Node;
 struct node 
-{   
+{ 
 
     int key;
     int sum;
@@ -20,7 +20,7 @@ enum AVL_balance
     AVL_BALANCED = 0,
 };
 
-Node* AVL_find (Node* root, int k);
+Node* AVL_search (Node* root, int k);
 Node* AVL_node (int key);
 
 void AVL_insert_recursive (Node** root, int x, int* h);
@@ -50,7 +50,7 @@ int main ()
 
     /* AVL 
 
-        CONCEPT: IT IS A COMPLETE BINARY TREE WICH HAS ALWAYS H(N) = LOG N
+        CONCEPT: IT IS A SELF-BALANCED BINARY TREE WICH HAS ALWAYS h(N) = LOG N
         COMPLEXITY: HAS O(LOG N) IN WORST CASE TO EACH DICT OPERATION
     
     */
@@ -60,7 +60,7 @@ int main ()
 }
 
 
-Node* AVL_find (Node* root, int k) 
+Node* AVL_search (Node* root, int k) 
 {
 
     if (root == NULL) 
@@ -73,11 +73,11 @@ Node* AVL_find (Node* root, int k)
     }
     else if (root -> key > k) 
     {
-        return AVL_find (root -> l, k);
+        return AVL_search (root -> l, k);
     }
     else 
     {
-        return AVL_find (root -> r, k);
+        return AVL_search (root -> r, k);
     }
 
 }

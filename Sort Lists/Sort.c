@@ -24,7 +24,7 @@ int median (int* v, int a, int b);
 int main () 
 {
 
-    /* EXAMPLE 
+    /* SORT EXAMPLE 
 
 
         int reversed_sorted_list [] = {98, 91, 87, 84, 79, 76, 75, 73, 69, 65};
@@ -182,7 +182,7 @@ void SL_ShS (int* vector, int size)
 
         int value = GAP [i];
 
-        // OUTER LOOP: ITERATATION START ON GAP [value] TO SIZE
+        // OUTER LOOP: ITERATION START ON GAP [value] TO SIZE
         for (int index_external = value; index_external < size; index_external ++) 
         {
             
@@ -266,7 +266,7 @@ void SL_QS (int* vector, int init, int end)
     }
 
 
-    /* LOMUTO ALGOTITHM
+    /* LOMUTO ALGOTITHM 
 
         // S1: PIVOT SELECTION THROUGH THE PARTITION ALGORITHM
         int partition_index = partition (vector, init, end);
@@ -390,7 +390,7 @@ int partition (int* vector, int init, int end)
     int RIGHT = end;
     int LEFT = init;
 
-    // S3: LESSER THAN PIVOT TO ITS LEFT AND GREATER TO ITS RIGHT
+    // S3: LESSERS THAN PIVOT TO ITS LEFT AND GREATER TO ITS RIGHT
     while (RIGHT > LEFT) 
     {   
 

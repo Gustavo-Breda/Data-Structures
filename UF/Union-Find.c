@@ -8,24 +8,9 @@ int find_set (int* PV, int x);
 int main () 
 {
 
-    /* Union-Find 
+    /* UNION-FIND 
 
         USE: EASE ALGORITHM TO OPERATE IN DISJOINT SETS
-
-    */
-
-    /* EXAMPLE 
-
-    int size_vector = 8;
-
-    int parent_vector [size_vector];
-    int rank_vector [size_vector];
-
-    for (int i = 0; i < size_vector; i ++) 
-    {
-        parent_vector [i] = i;
-        rank_vector [i] = 0;
-    }
 
     */
 

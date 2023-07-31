@@ -26,30 +26,6 @@ int main ()
         // LEFT-CHILD: (2i) or (2i + 1)
 
     */
-    
-    /* EXAMPLE 
-
-        int list [10] = {4, 5, 2 , 3, 6, 8, 99, 0};
-        int size = 7;
-
-        HP_maxify (list, father (size), size);
-        HP_insert_max (list, 9, &size);
-        HP_remove_max (list, &size);
-
-        for (int i = 0; i <= size; i ++) 
-        {
-            if (i == 0) 
-            {
-                printf ("\nList:");
-            }
-            printf (" %d", list[i]);
-            if (i == size) 
-            {
-                printf ("\n\n");
-            }
-        }
-
-    */
 
     return 0;
 
@@ -59,7 +35,7 @@ int main ()
 void HP_insert_max (int* list, int key, int* n) 
 {
     
-    // OVERVIEW: WE HAVE TWO ACTIONS HERE (INSERT_KEY) AND (INCREASE_KEY)
+    // OVERVIEW: WE HAVE TWO OPERATIONS CONDENSED AT HERE (INSERT_KEY AND INCREASE_KEY)
     int temp;
     int i;
     

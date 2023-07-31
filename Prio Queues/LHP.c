@@ -31,7 +31,7 @@ Node* LHP_union (Node* ha, Node* hb);
 int main () 
 {
     
-    /* Leftist HEAP 
+    /* LEFTIST HEAP 
 
         USE: EASIEST HEAP WHICH MERGE TWO HEAPS IN O(LOG N)
 
@@ -107,7 +107,7 @@ void LHP_decrease (Node** root, Node* x, int k)
         Node* parent_x = LHP_Psearch (*root, x);
         x -> data = k;
 
-        // IF THE NEW DATA IS EVEN HIGHER THAN THE PARENT SO WE DO NOTHING
+        // IF THE NEW DATA STILL HIGHER THAN THE PARENT SO WE DO NOTHING
         if (parent_x -> data <= x -> data) 
         {
             return;
@@ -143,7 +143,6 @@ void LHP_remove (Node** root, Node* x)
 {
 
     LHP_decrease (root, x, INT_MIN);
-    printf ("\nNova Root: %d", (*root) -> data);
     LHP_remove_minimum (root);
 
 }

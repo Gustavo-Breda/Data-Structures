@@ -40,7 +40,7 @@ void remove_node (Node* na);
 int main () 
 {
 
-    // LINKED LIST: DOUBLY LINKED, CIRCULAR AND WITH HEAD AND TAIL POINTERS
+    // LINKED LIST: CIRCULAR, DOUBLY LINKED AND WITH HEAD AND TAIL POINTERS
     List* L = malloc (sizeof (List));
     L -> head = NULL;
     L -> tail = NULL;
@@ -131,6 +131,7 @@ void CDLL_show (List* L)
 }
 void CDLL_free (List *L) 
 {
+    
     if (L == NULL) 
     {
         return;

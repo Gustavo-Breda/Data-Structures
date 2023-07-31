@@ -33,7 +33,7 @@ void BHP_union (Node* na, Node* nb);
 int main () 
 {
 
-    /* EXAMPLE 
+    /* BINOMIAL HEAP EXAMPLE 
     
         Node* B = BHP_create (10);
 
@@ -81,7 +81,7 @@ Node* BHP_create (int size)
     }
     else 
     {
-        printf ("Allocation error");
+        printf ("\nAllocation error");
         exit (1);
     }
     
@@ -103,7 +103,7 @@ Node* BHP_node (int data)
     }
     else 
     {
-        printf ("Allocation error");
+        printf ("\nAllocation error");
         exit (1);
     }
 

@@ -38,7 +38,7 @@ int SS_pop (Stack* S);
 int main () 
 {
 
-    /*  EXAMPLE OF SEQUENTIAL LISTS 
+    /*  SEQUENTIAL LISTS EXAMPLE 
 
         Queue* queue = SQ_create (100);
         Stack* stack = SS_create (100);
@@ -94,6 +94,7 @@ Queue* SQ_create (int size)
         printf ("\nAllocation error");
         exit(1);
     }
+
 }
 Stack* SS_create (int size) 
 {
@@ -129,6 +130,7 @@ Stack* SS_create (int size)
         printf ("\nAllocation error");
         exit(1);
     }
+
 }
 
 void SQ_show (Queue* Q) 
@@ -171,7 +173,7 @@ void SQ_enqueue (Queue* Q, int data)
 
     if (Q -> head == Q -> tail + 1 || (Q -> head == 1 && Q -> tail == Q -> length)) 
     {
-        printf ("\nFull Queue");
+        printf ("\n Full Queue \n");
         return;
     }
     
@@ -198,18 +200,23 @@ void SS_push (Stack* S, int data)
 int SQ_dequeue (Queue* Q) 
 {
 
+    if (Q -> head == Q -> tail )
+    {
+        printf ("\n Empty Queue \n");
+        exit (1);
+    }
+
     int x = Q -> vector [Q -> head];
 
     if (Q -> head == Q -> length) 
     {
         Q -> head = 1;
-        return x;
     }
     else 
     {
         Q -> head += 1;
-        return x;
     }
+    return x;
 
 }
 int SS_pop (Stack* S) 
@@ -217,7 +224,7 @@ int SS_pop (Stack* S)
 
     if (S -> top == 0) 
     {
-        printf ("\nEmpty Stack\n");
+        printf ("\n Empty Stack \n");
         exit (1);
     }
     else 

@@ -17,8 +17,8 @@ struct node
 
 };
 
-typedef struct Fibonnacci_HP FHP;
-struct Fibonnacci_HP 
+typedef struct Fibonacci FHP;
+struct Fibonacci 
 {   
 
     Node* min;
@@ -53,29 +53,11 @@ int F (int n);
 int main () 
 {
 
-    /* Fibonnacci HEAP 
+    /* FIBONACCI HEAP 
 
         // USE: NUMBER OF "EXTRACT MINIMUN" AND "DELETE" IS LOWER IN COMPARISOM TO OTHER OPERATIONS
         // BIG O: EXTRACT MINIMUM AND DELETE HAS O(LOG(N)) AND THE REST HAS (AMORTIZED) O(1) 
 
-    */
-
-    /* 
-    
-        FHP* H = FHP_create ();
-
-        FHP_insert (H, 1);
-        FHP_insert (H, 166);
-        FHP_insert (H, 714);
-        FHP_insert (H, 642);
-        FHP_insert (H, 22);
-        FHP_insert (H, 33);
-        FHP_insert (H, 44);
-
-        FHP_remove_minimum (H);
-
-        printf ("\nMINIMUM VALUE OF ROOT LIST (H): %d", H -> min -> data);
-    
     */
 
     return 0;
@@ -178,7 +160,7 @@ Node* FHP_minimun (FHP* H)
     
     if (H -> min == NULL) 
     {
-        printf ("\n Fibonnacci Empty \n");
+        printf ("\n Fibonacci Heap Empty \n");
         return NULL;
     }
     return (H -> min);
@@ -338,7 +320,7 @@ void FHP_decrease (FHP* H, Node* x, int k)
 
     if (x -> data < k) 
     {
-        printf ("Invalid data");
+        printf ("\nInvalid data");
         exit (1);
     }
     
