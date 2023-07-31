@@ -91,6 +91,12 @@ Node* LHP_node (int data)
 void LHP_decrease (Node** root, Node* x, int k) 
 {
 
+    if (x -> data < k) 
+    {
+        printf ("\nInvalid key");
+        return;
+    }
+
     if (x == *root) 
     {
         (*root) -> data = k;
