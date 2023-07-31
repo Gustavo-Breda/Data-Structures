@@ -32,15 +32,6 @@ int node_ht (Node* root);
 int main () 
 {
 
-    /* Lemmas 
-
-        Lemma 1: tomando uma arvore BCO (T) com (n) nodes e (h) de altura  >>>  (2^(h - 1)) ≤ n ≤ (2^(h) - 1)
-        Lemma 2: tomando uma arvore BC (T) com (n) nodes  >>  (T) contem lesser altura (h) e (h == log n)
-        Lemma 3: uma árvore com (n) nodes detem exatamente (n + 1) subarvores vazias
-        Lemma 4: E(T) == I(T) + n
-
-    */
-
     Node *root = NULL;
 
     return 0;
