@@ -242,7 +242,7 @@ void SL_MS (int* vector, int size)
    SL_MS (r_vector, r_size);
    SL_MS (l_vector, l_size);
    
-   // S4: BOUND THE TWO SUB-ARRAYS
+   // S4: MERGE THE TWO SUB-ARRAYS
    MG (vector, r_vector, r_size, l_vector, l_size);
 
    // S5: FREE THE TWO SUB-ARRAYS CREATED
@@ -291,7 +291,6 @@ void SL_QS (int* vector, int init, int end)
 void MG (int* vector, int* r_vector, int r_size, int* l_vector, int l_size) 
 {
 
-    // CONCEPT: SORTING LIKE ASSESS THE TOP OF TWO PILES
     int r_TOP = 0;
     int l_TOP = 0;
     int i = 0;

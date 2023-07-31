@@ -108,9 +108,15 @@ FHP* FHP_create ()
     {
         root -> min = NULL;
         root -> n = 0;
-    }
 
-    return root;
+        return root;
+    }
+    else 
+    {
+        printf ("\nAllocation error");
+        exit (1);
+    }
+    
 }
 
 Node* FHP_remove_minimum (FHP* H) 
@@ -192,9 +198,15 @@ Node* FHP_node (int data)
         new_node -> child = NULL;
         new_node -> r = new_node;
         new_node -> l = new_node;
-    }
-    return new_node;
 
+        return new_node;
+    }
+    else 
+    {
+        printf ("\nAllocation error");
+        exit (1);
+    }
+    
 }
 
 void FHP_link (FHP* H, Node* y, Node* x) 

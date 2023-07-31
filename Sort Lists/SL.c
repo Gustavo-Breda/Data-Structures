@@ -89,7 +89,7 @@ Queue* SQ_create (int size)
         
         return Q;
     }
-    else
+    else 
     {
         printf ("\nAllocation error");
         exit(1);
