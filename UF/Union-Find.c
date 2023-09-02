@@ -22,7 +22,7 @@ int main ()
 void union_set (int* PV, int* RV, int size, int sa, int sb) 
 {
 
-    if (sa >= size || sb >= size)
+    if (sa >= size || sb >= size) 
     {
         return;
     }

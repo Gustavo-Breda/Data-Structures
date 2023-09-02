@@ -5,6 +5,7 @@
 typedef struct node Node;
 struct node 
 {   
+    
     int marked;
     int order;
     int data;
